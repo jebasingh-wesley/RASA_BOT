@@ -1,0 +1,63 @@
+version: "2.0"
+stories:
+- story: happy actions
+  steps:
+  - intent: greet
+  - action: utter_category
+  - intent: affirm
+  - action: action_hello_world
+- story: buttons current
+  steps:
+  - intent: greet
+  - action: utter_category
+  - intent: current
+  - action: utter_current
+  - intent: price
+  - action: utter_ask_name
+  - intent: rankmode
+  - action: action_receive_name
+- story: test
+  steps:
+  - intent: rankmode
+  - action: action_receive_name
+
+
+
+
+
+
+
+- story: Story from Conversation ID 7e5aecf7a8b046f69907d7b10d919bf9
+  steps:
+  - intent: rankmode
+    entities:
+    - rank: '344'
+  - slot_was_set:
+    - rank: '344'
+  - action: action_receive_name
+  - intent: greet
+  - action: utter_category
+  - intent: current
+  - action: utter_current
+  - intent: price
+  - action: utter_ask_name
+  - intent: rankmode
+    entities:
+    - rank: '345676'
+  - slot_was_set:
+    - rank: '345676'
+  - action: action_receive_name
+- story: Story from Conversation ID d6de9b79e67344f2bb4183cbab412016
+  steps:
+  - intent: greet
+  - action: utter_category
+  - intent: current
+  - action: utter_current
+  - intent: price
+  - action: utter_ask_name
+  - intent: rankmode
+    entities:
+    - rank: '3446'
+  - slot_was_set:
+    - rank: '3446'
+  - action: action_receive_name
