@@ -1,0 +1,96 @@
+install redis in ubuntu
+*************************
+
+Ref Link :-https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-ubuntu-18-04
+
+sudo apt update
+
+sudo apt install redis-server
+
+sudo vi /etc/redis/redis.conf
+
+supervised systemd
+
+find key in vi editor
+---------------------
+
+/supervised
+
+set the systemd
+
+sudo systemctl restart redis.service
+
+sudo systemctl status redis
+
+you need a diisable
+------------------------
+sudo systemctl disable redis
+
+yu need a any query in redis
+---------------------------
+
+redis-cli
+
+ping
+
+set test "It's working!"
+
+get test
+
+Binding to localhost
+************************
+
+sudo vi /etc/redis/redis.conf
+
+bind 127.0.0.1 ::1
+
+sudo systemctl restart redis
+
+sudo netstat -lnp | grep redis
+
+Configuring a Redis Password
+****************************
+openssl rand 60 | openssl base64 -A
+
+ex .RBOJ9cCNoGCKhlEBwQLHri1g+atWgn4Xn4HwNUbtzoVxAYxkiYBi7aufl4MILv1nxBqR4L6NNzI0X6cE
+
+
+sudo nano /etc/redis/redis.conf
+
+find # requirepass foobared
+
+requirepass .RBOJ9cCNoGCKhlEBwQLHri1g+atWgn4Xn4HwNUbtzoVxAYxkiYBi7aufl4MILv1nxBqR4L6NNzI0X6cE
+
+sudo systemctl restart redis.service
+
+redis-cli
+
+get user
+
+(error) NOAUTH Authentication required.
+
+auth .RBOJ9cCNoGCKhlEBwQLHri1g+atWgn4Xn4HwNUbtzoVxAYxkiYBi7aufl4MILv1nxBqR4L6NNzI0X6cE
+
+get user
+
+"it is a redis"
+
+simple password set
+*********************
+redis-cli
+
+CONFIG SET requirepass "attumoorthy"
+
+AUTH attumoorthy
+
+Redis change password
+*************************
+
+same as simple pwd  set
+
+
+
+Redis key delete command
+**************************
+
+del "key name"
