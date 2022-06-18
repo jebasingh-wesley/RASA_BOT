@@ -1,0 +1,37 @@
+speech to text:
+------------------------------------------------------------------------
+pip install pipwin
+pipwin install pyaudio
+pip install speechrecognition
+sudo apt-get install portaudio19-dev python-pyaudio
+pip install PyAudio
+
+
+import speech_recognition as sr
+r= sr.Recognizer()
+with sr.Microphone() as source:
+    print("speak Anything")
+    audio = r.listen(source)
+    try:
+        text=r.recognize_google(audio)
+        print("you said : {}".format(text))
+    except:
+        print("sorry could not recognize")
+
+
+Text To Speech:
+------------------------------------------------------------------------------
+pip install gtts
+sudo apt-get install mpg321
+##https://www.youtube.com/watch?v=PQXS78XnsBs
+
+
+# import subprocess
+# from gtts import gTTS
+#
+#
+# mytxt='welcome to lambdadigital'
+# language='en'
+# myobj=gTTS(text=mytxt, lang=language)
+# myobj.save("welcome.mp3")
+# subprocess.call(['vlc','welcome.mp3','--play-and-exit'])
