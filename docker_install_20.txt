@@ -1,0 +1,54 @@
+
+
+
+
+docker install in ubuntu 20
+
+reference link:
+https://phoenixnap.com/kb/install-docker-on-ubuntu-20-04
+
+
+docker hub username or id :moorthy1417
+password : Moorthi@123
+
+sample docker:
+FROM python:3.9
+ADD voice_doc.py .
+ADD requirements.txt .
+RUN pip install -r requirements.txt
+CMD  [ "python", "./voice_doc.py" ]
+RUN apt-get update ##[edited]
+
+
+
+
+
+create new repostries in your docker hub
+docker build -t voiceimage .
+docker run voiceimage
+
+sudo docker tag voiceimage moorthy1417/voice_to_text:first
+
+
+1.docker logout
+2.docker login
+username :moorthy1417
+password:Moorthi@123
+
+3.sudo docker push moorthy1417/voice_to_text:first
+
+delete images id
+---------------------------------
+sudo docker rmi be80889572bc
+sudo docker -f be80889572bc
+
+pull in docker hub 
+-----------------------
+sudo docker pull moorthy1417/voice_to_text:finall(tag name)
+sudo docker run -p 8000:8000 be80889572bc(image id)
+
+
+new id
+------------
+troondx1234
+troondx@123
